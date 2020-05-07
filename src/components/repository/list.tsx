@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { NoSsr } from "@material-ui/core"
 import { Repository } from '../../stores/repositories/types'
 import { loadRequest } from '../../stores/repositories/actions'
 import { ApplicationState } from '../../stores/index'
 import RepositoryItem from './item'
+
 
 const RepositoryList = () => {
     const dispatch = useDispatch()
@@ -16,11 +18,11 @@ const RepositoryList = () => {
     }, [dispatch])
 
     return (
-        <div>
+        <NoSsr>
             {repositories.map((repository) => (
                 <RepositoryItem key={repository.id} repository={repository} />
             ))}
-        </div>
+        </NoSsr>
     )
 }
 
